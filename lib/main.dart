@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:resuable_components_talk/ui/screens/home/home_screen.dart';
 import 'package:resuable_components_talk/ui/views/theme/AppTheme.dart';
 
+// culjo
+// https://github.com/culjo/
 
 void main() => runApp(MyApp());
 

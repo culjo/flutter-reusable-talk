@@ -7,20 +7,30 @@ class FoodListScreen extends StatefulWidget {
 }
 
 class _FoodListScreenState extends State<FoodListScreen> {
+
+  int currentTab = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
 
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: currentTab,
         type: BottomNavigationBarType.fixed,
         showSelectedLabels: false,
         showUnselectedLabels: false,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.star_border, ), activeIcon: Icon(Icons.stars,), title: Text(""), ),
-          BottomNavigationBarItem(icon: Icon(Icons.favorite_border, ), title: Text(""), ),
-          BottomNavigationBarItem(icon: Icon(Icons.shopping_basket, ), title: Text(""), ),
-          BottomNavigationBarItem(icon: Icon(Icons.notifications_none, ), title: Text(""), ),
+          BottomNavigationBarItem(icon: Icon(Icons.favorite_border, ), activeIcon: Icon(Icons.favorite, ), title: Text(""), ),
+          BottomNavigationBarItem(icon: Icon(Icons.bookmark_border, ), activeIcon: Icon(Icons.bookmark, ), title: Text(""), ),
+          BottomNavigationBarItem(icon: Icon(Icons.notifications_none, ), activeIcon: Icon(Icons.notifications, ) , title: Text(""), ),
         ],
+        onTap: (int selected) {
+          setState(() {
+            currentTab = selected;
+
+          });
+        },
       ),
 
 
@@ -49,8 +59,8 @@ class _FoodListScreenState extends State<FoodListScreen> {
             Divider(),
             Expanded(
               child: ListView(
-                children: <Widget>[
-                  Container(
+                children: List.generate(12, (index) {
+                  return Container(
                     padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
                     child: Row(
                       children: <Widget>[
@@ -100,59 +110,8 @@ class _FoodListScreenState extends State<FoodListScreen> {
                         ),
                       ],
                     ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-                    child: Row(
-                      children: <Widget>[
-                        Image.asset(
-                          "images/photo1.jpeg",
-                          width: 76,
-                          height: 76,
-                          fit: BoxFit.cover,
-                        ),
-
-                        Expanded(
-                          child: Container(
-                            margin: EdgeInsets.only(left: 20),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Text(
-                                  "Fruit Salad",
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 4.0,
-                                ),
-                                Text(
-                                  "30 mins from you",
-                                  style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400,
-                                      color: Colors.grey),
-                                ),
-                                SizedBox(
-                                  height: 10.0,
-                                ),
-                                Text(
-                                  "\u20A62,300",
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.green),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+                  );
+                }),
               ),
             ),
           ],
