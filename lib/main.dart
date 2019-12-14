@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:resuable_components_talk/screens/home/home_screen.dart';
-import 'package:resuable_components_talk/views/commonwidgets/progress_button.dart';
-import 'package:resuable_components_talk/views/theme/AppTheme.dart';
+import 'package:resuable_components_talk/ui/screens/home/home_screen.dart';
+import 'package:resuable_components_talk/ui/views/theme/AppTheme.dart';
+
 
 void main() => runApp(MyApp());
 
@@ -16,4 +16,5 @@ class MyApp extends StatelessWidget {
       home: HomeScreen(),
     );
   }
+
 }

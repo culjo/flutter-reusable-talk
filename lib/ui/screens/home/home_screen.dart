@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:resuable_components_talk/views/commonwidgets/my_widgets.dart';
+import 'package:resuable_components_talk/ui/views/commonwidgets/my_widgets.dart';
+import 'package:resuable_components_talk/ui/views/logic/navigation_director.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -63,7 +64,9 @@ class _HomeScreen extends State<HomeScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          NavigatorDirector.of(context).openFoodList();
+        },
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.

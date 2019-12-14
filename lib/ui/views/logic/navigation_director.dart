@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:resuable_components_talk/views/uimixins/ui_steroids.dart';
+import 'package:resuable_components_talk/ui/screens/foodlist/food_list_screen.dart';
+import 'package:resuable_components_talk/ui/views/uimixins/ui_steroids.dart';
 
 class NavigatorDirector with UiSteroids {
 
@@ -18,8 +19,8 @@ class NavigatorDirector with UiSteroids {
 
   }
 
-  openDriver() {
-//    navigateTo(context, )
+  openFoodList() {
+    navigateTo(context, FoodListScreen());
   }
 
 }
